@@ -2,7 +2,7 @@ import { Box, makeStyles, FormControl, InputBase, Button,TextareaAutosize } from
 import { AddCircle as Add, AddCircle } from '@material-ui/icons';
 import { useState  } from "react";
 import { createPost } from "../../service/api";
-
+import {useHistory} from  'react-router-dom';
 
 
 const useStyle=makeStyles({
@@ -40,6 +40,7 @@ const initialValues = {
 const CreateView = () => {
 
     const classes=useStyle();
+    const history = useHistory();
     const [post,setPost] = useState(initialValues);
     const handleChange = (e) =>{
         setPost({ ...post,[e.target.name] : e.target.value })
@@ -49,6 +50,7 @@ const CreateView = () => {
 
     const savePost = async() => {
         await createPost(post);
+        history.push('/')
     }
     return(
         <Box className={classes.container}>

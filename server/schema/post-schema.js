@@ -2,9 +2,9 @@ import mongoose from 'mongoose';
 
 
 
-const PostSchema = mongoose.Schema({
+const postSchema = mongoose.Schema({
     title: {
-        type:String,
+        type: String,
         required : true,
         unique: true
     },
@@ -27,5 +27,5 @@ const PostSchema = mongoose.Schema({
 })
 
 
-const post = mongoose.model('post',PostSchema);
+const post = mongoose.model('post',postSchema);
 export default post;
